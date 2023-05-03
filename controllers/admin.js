@@ -10,7 +10,7 @@ export const Adminlogin = async (req, res) => {
     const { email, password } = req.body;
 
     // Check if user exists
-    const user = await Admin.findOne({ email });
+    const user = await Admin.findOne({ username: email });
 
     if (!user) {
       return res.status(401).json({ error: "unauthorized" });
