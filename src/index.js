@@ -1,3 +1,7 @@
+// fire base only
+import functions from "firebase-functions";
+// fire base only
+
 import mongoose from "mongoose";
 import Express from "express";
 import cors from "cors";
@@ -9,7 +13,8 @@ dotenv.config();
 import main from "./routes/main.js";
 import Admin from "./routes/admin.js";
 
-const DB = process.env.DATABASE_KEY;
+const DB =
+  "mongodb+srv://vishu7im:teranaam.im7@cluster0.4tmteql.mongodb.net/gbn";
 
 const app = Express();
 const PORT = process.env.PORT || 5000;
@@ -40,3 +45,5 @@ mongoose
   .catch((e) => {
     console.log(e.message);
   });
+
+export const GBN = functions.https.onRequest(app);
