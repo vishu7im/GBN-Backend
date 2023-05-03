@@ -9,8 +9,7 @@ dotenv.config();
 import main from "./routes/main.js";
 import Admin from "./routes/admin.js";
 
-const DB =
-  "mongodb+srv://vishu7im:teranaam.im7@cluster0.4tmteql.mongodb.net/gbn";
+const DB = process.env.DATABASE_KEY;
 
 const app = Express();
 const PORT = process.env.PORT || 5000;
