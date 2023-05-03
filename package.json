@@ -2,11 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "description": "server for GBN",
-  "main": "src/index.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon src/index.js",
-    "deploy": "firebase deploy --only functions:GBN"
+    "start": "nodemon index.js"
   },
   "author": "vishal munday",
   "license": "ISC",
