@@ -25,7 +25,7 @@ app.use(cors());
 //  routes
 app.use(main);
 app.get("/", (req, res) => {
-  res.send("server");
+  res.send("server vishal");
 });
 app.use("/admin", Admin);
 
