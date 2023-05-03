@@ -1,7 +1,3 @@
-// fire base only
-import functions from "firebase-functions";
-// fire base only
-
 import mongoose from "mongoose";
 import Express from "express";
 import cors from "cors";
@@ -45,5 +41,3 @@ mongoose
   .catch((e) => {
     console.log(e.message);
   });
-
-export const GBN = functions.https.onRequest(app);
