@@ -24,6 +24,9 @@ app.use(cors());
 
 //  routes
 app.use(main);
+app.get("/", (req, res) => {
+  resizeBy.send("server");
+});
 app.use("/admin", Admin);
 
 mongoose.set("strictQuery", false);
