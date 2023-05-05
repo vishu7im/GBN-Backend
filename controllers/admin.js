@@ -1,4 +1,4 @@
-import { TempUser, Admin, User } from "../DB/user.js";
+import { TempUser, Admin, User, Gallery } from "../DB/user.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { ACCEPT, REJECT } from "../mail/server.js";
@@ -184,6 +184,17 @@ export const NewAdmin = async (req, res) => {
     res.status(200).json({ msg: "Admin Created " });
   } catch (error) {
     res.status(400).json({ err: error.message });
+  }
+};
+
+export const uploadDocument = async (req, res) => {
+  const { Document, Title } = req.body;
+  const data = new Gallery({ Document, Title });
+  try {
+    await data.save();
+    res.status(200).json({ msg: "upload" });
+  } catch (error) {
+    res.status(500).json({ msg: error.message });
   }
 };
 

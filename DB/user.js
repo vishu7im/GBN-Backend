@@ -76,8 +76,23 @@ const UserSchema = new Schema({
     default: Date.now(),
   },
 });
+const GallerySchema = new Schema({
+  Document: {
+    type: String,
+    required: true,
+  },
+  Title: {
+    type: String,
+    required: true,
+  },
+  date: {
+    type: Date,
+    default: Date.now(),
+  },
+});
 
 // Create the user model
 export const TempUser = mongoose.model("TempUser", UserSchema);
 export const User = mongoose.model("User", UserSchema);
 export const Admin = mongoose.model("admin", AdminSchema);
+export const Gallery = mongoose.model("Gallery", GallerySchema);
