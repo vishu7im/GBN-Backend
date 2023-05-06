@@ -7,6 +7,7 @@ import {
   getoneuser,
   NewAdmin,
   uploadDocument,
+  fetchGallery,
 } from "../controllers/admin.js";
 import { Router } from "express";
 import { AdminAuth } from "../middleware/admin.js";
@@ -21,5 +22,6 @@ router.get("/fetch", fetch);
 router.get("/getuser/:id", getoneuser);
 router.post("/response", AdminAuth, UserResponse);
 router.post("/uploadDocument", AdminAuth, uploadDocument);
+router.get("/gallery", fetchGallery);
 
 export default router;

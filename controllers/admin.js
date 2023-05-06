@@ -198,6 +198,18 @@ export const uploadDocument = async (req, res) => {
   }
 };
 
+export const fetchGallery = async (req, res) => {
+  try {
+    const data = await Gallery.find();
+
+    const shuffled = shuffle(data);
+
+    res.status(200).json({ data: shuffled });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 // const temp = async () => {
 //   let arr = [
 //     {
