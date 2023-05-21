@@ -138,11 +138,8 @@ export const fetch = async (req, res) => {
 };
 export const fetchhomeuser = async (req, res) => {
   try {
-    const data = await User.find();
-
-    const shuffled = shuffle(data);
-    const newArray = shuffled.slice(0, 5);
-    res.status(200).json({ data: newArray });
+    const data = await User.aggregate([{ $sample: { size: 5 } }]);
+    res.status(200).json({ data: data });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -200,11 +197,9 @@ export const uploadDocument = async (req, res) => {
 
 export const fetchGallery = async (req, res) => {
   try {
-    const data = await Gallery.find();
+    const data = await Gallery.aggregate([{ $sample: { size: 5 } }]);
 
-    const shuffled = shuffle(data);
-
-    res.status(200).json({ data: shuffled });
+    res.status(200).json({ data: data });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
